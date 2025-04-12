@@ -1,0 +1,117 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Warna dasar dan font */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f0f2f5, #d9e4f5);
+    color: #333;
+    padding: 40px;
+}
+
+/* Header */
+h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #2c3e50;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Container tombol */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Tombol premium */
+.button-link {
+    text-decoration: none;
+}
+
+button {
+    background: #1e90ff;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    font-size: 16px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 100%;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #156fc1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.logout-button {
+    background: #e74c3c;
+}
+
+.logout-button:hover {
+    background: #c0392b;
+}
+
+/* Tombol Settings (☰) */
+#toggleSettings {
+    position: absolute;
+    right: -200px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#toggleSettings:hover {
+    transform: scale(1.1);
+}
+
+/* Panel Pengaturan */
+.settings-panel {
+    position: fixed;
+    top: 0;
+    left: -300px; /* awalnya di luar layar kiri */
+    width: 300px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    transition: left 0.4s ease, right 0.4s ease;
+    padding: 20px;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.settings-panel.active {
+    left: 0;
+}
+
+.settings-panel.exit {
+    left: 100%; /* keluar ke kanan */
+}
+
+#settingsPanel {
+    position: fixed;
+    top: 80px;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.4s ease;
+    z-index: 999;
+}
+
+#settingsPanel.active {
+    left: 0;
+}

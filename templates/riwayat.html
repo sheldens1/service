@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Servis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='darkmode.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tombolset.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f9f9f9;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .status-selesai {
+            color: green;
+            font-weight: bold;
+        }
+
+        .status-ditolak {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <body class="{{ 'dark-theme' if get_user().get('dark_mode') else '' }}">
+        <header>
+            <button id="toggleSettings">☰</button>
+        </header>
+        
+        <div id="settingsPanel" class="settings-panel hidden">
+            <h2>Pengaturan</h2>
+            <p>Ini konten pengaturan kamu, Lucky!</p>
+            <ul class="settings-menu">
+                <li><a href="{{ url_for('tema') }}">Tema</a></li>
+                <li><a href="#">Notifikasi</a></li>
+                <li><a href="{{ url_for('settings') }}">Pengaturan</a></li>
+            </ul>
+        </div>
+        <h2>Riwayat Servis</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>No HP</th>
+            <th>Kerusakan</th>
+            <th>Status</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for service in services %}
+            {% if service.status != 'pending' %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ service.nama }}</td>
+                <td>{{ service.nohp }}</td>
+                <td>{{ service.kerusakan }}</td>
+                <td class="status-{{ service.status }}">{{ service.status.capitalize() }}</td>
+                <td>{{ service.email }}</td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('admin_dashboard') }}" class="back-btn">Kembali ke Dashboard</a>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

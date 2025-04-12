@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil Pengguna</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{% if session.get('theme') == 'dark' %}dark-theme{% endif %}">
+
+    <div class="user-card">
+        <img src="{{ url_for('static', filename='uploads/' + current_user['foto']) }}" class="foto-mini" alt="Foto Profil">
+        <div class="user-info">
+            <h4>{{ current_user['nama'] if current_user['nama'] else current_user['username'] }}</h4>
+            <p>Status : {{ current_user['status'] }}</p>
+            <p class="status-online">● Online</p>
+        </div>
+    </div>
+
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="#"><i class="fas fa-home"></i>Beranda</a>
+        <a href="{{ url_for('pengguna_online') }}"><i class="fas fa-users"></i>Pengguna</a>
+        <a href="{{ url_for('lobi') }}"><i class="fas fa-cog"></i>Untuk Dia</a>
+        <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+    </div>
+
+</body>
+</html>
