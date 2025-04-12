@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='das.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='darkmode.css') }}">
+</head>
+<body class="{{ 'dark-theme' if dark_mode else '' }}">
+    <header>
+        <div class="logo">
+            <h1>Nama Aplikasi</h1>
+        </div>
+        <button id="toggleSettings">☰</button>
+    </header>
+    
+    <div id="settingsPanel" class="settings-panel hidden">
+        <h2>Pengaturan</h2>
+        <p>Ini konten pengaturan kamu, Lucky!</p>
+        <ul class="settings-menu">
+            <li><a href="{{ url_for('tema') }}">Tema</a></li>
+            <li><a href="#">Notifikasi</a></li>
+            <li><a href="{{ url_for('settings') }}">Pengaturan</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="welcome">
+            <h2>Selamat datang, {{ username }}!</h2>
+            <p>Mulailah proyek baru atau lihat tutorial kami.</p>
+            <p>Ingin mengajukan servis HP? <a href="{{ url_for('form_service') }}">Klik di sini</a></p>
+            <button id="downloadBtn">Unduh Proyek</button>
+        </section>
+    </main>
+
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <div class="footer">
+        <a href="#"><i class="fas fa-home"></i>Beranda</a>
+        <a href="{{ url_for('pengguna_online') }}"><i class="fas fa-users"></i>Pengguna</a>
+        <a href="{{ url_for('lobi') }}"><i class="fas fa-cog"></i>Untuk Dia</a>
+        <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

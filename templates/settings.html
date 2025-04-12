@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Pengaturan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='settings.css') }}">
+</head>
+<body class="{{ 'dark-theme' if user.dark_mode else '' }}">
+    <div class="profile-header">
+        <img src="{{ url_for('static', filename='uploads/' ~ user.foto) }}" class="profile-pic" alt="Foto Profil">
+        <div class="profil-info">
+            <h2>{{ user.nama if user.nama else user.username }}</h2>
+            <p>{{ user.email }}</p>
+            <a href="{{ url_for('edit_nama') }}">Edit Nama</a>
+        </div>
+   
+        </div>
+    </div>
+
+    <div class="menu-list">
+        <a href="{{ url_for('profil') }}" class="menu-item">Profil</a>
+            </div>
+        </a>
+
+        <a href="{{ url_for('akun') }}" class="menu-item">
+            <span class="icon">🔑</span>
+            <div class="menu-text">
+                <p class="title">Akun</p>
+                <p class="subtitle">Ganti sandi, keamanan</p>
+            </div>
+        </a>
+
+        <a href="{{ url_for('dashboard') }}" class="menu-item">
+            <span class="icon">🚪</span>
+            <div class="menu-text">
+                <p class="title">Kembali Ke dashboard</p>
+            </div>
+        </a>
+
+        <a href="{{ url_for('logout') }}" class="menu-item logout">
+            <span class="icon">🚪</span>
+            <div class="menu-text">
+                <p class="title">Keluar</p>
+                <p class="subtitle">Logout dari akun</p>
+            </div>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unduh Gambar</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="fade-in">📥 Unduh Gambar Spesial</h1>
+        <p class="fade-in">Ini cuma pesan kecil yang mau aku sampaikan.</p>
+        <p class="fade-in">Kalau gak mau unduh, gak apa-apa kok. 😊</p>
+
+        <button class="btn" onclick="downloadImage()">📂 Unduh Gambar</button>
+        <br>
+        <a href="lobi.html" class="btn">🔙 Kembali</a>
+    </div>
+
+    <script>
+        function downloadImage() {
+            var link = document.createElement('a');
+            link.href = 'bahan/buka.rar'; // Pastikan file ada
+            link.download = 'buka.rar';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+    <audio id="bg-music" autoplay loop>
+        <source src="audio/phot.mp3" type="audio/mp3">
+        Browser kamu tidak mendukung audio.
+    </audio>
+    <script src="style/script.js" defer></script>
+</body>
+</html>

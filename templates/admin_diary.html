@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary Admin</title>
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='diary.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='darkmode.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='tombolset.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <body class="{{ 'dark-theme' if get_user().get('dark_mode') else '' }}">
+        <header>
+            <button id="toggleSettings">☰</button>
+        </header>
+        
+        <div id="settingsPanel" class="settings-panel hidden">
+            <h2>Pengaturan</h2>
+            <p>Ini konten pengaturan kamu, Lucky!</p>
+            <ul class="settings-menu">
+                <li><a href="{{ url_for('tema') }}">Tema</a></li>
+                <li><a href="#">Notifikasi</a></li>
+                <li><a href="{{ url_for('settings') }}">Pengaturan</a></li>
+            </ul>
+        </div>
+        <h2>Diary Harian Admin</h2>
+    
+    <button onclick="toggleTheme()" style="float:right; margin-bottom: 20px;">Ganti Tema</button>
+
+    <form method="POST">
+        <input type="text" name="title" placeholder="Judul catatan..." required><br>
+        <textarea name="entry" rows="5" placeholder="Tulis isi diary di sini..." required></textarea><br>
+        <button type="submit">Simpan Entry</button>
+    </form>
+    <a href="{{ url_for('admin_dashboard') }}" class="back-btn">Kembali ke Dashboard</a>
+
+    <hr>
+
+    <h3>Riwayat Diary</h3>
+    {% for e in entries %}
+    <div class="entry-card">
+        <div class="entry-header" onclick="toggleEntry(this.parentElement)">
+            <div>
+                <div class="entry-title">{{ e.title }}</div>
+                <div class="entry-meta">{{ e.timestamp }}</div>
+            </div>
+            <div class="arrow">&#9660;</div>
+        </div>
+        <div class="entry-body">
+            <p>{{ e.entry }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    <script src="{{ url_for('static', filename='diary.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
