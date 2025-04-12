@@ -1,0 +1,18 @@
+{
+    "Lucky": {
+        "email": "luckyfranzacky2@gmail.com",
+        "password": "scrypt:32768:8:1$uIOQ2mrhCNzOXouW$09cbee93b5d45d671092fb4f6f029235a4440214e286faab201b6853f9408ee150b410461a6895db1f65f75304a14f7ab3e9ad49901c1b52daafa9f65c2bcffd",
+        "online": true,
+        "role": "admin",
+        "dark_mode": true
+    },
+    "reni": {
+        "email": "luckyfranzacky3@gmail.com",
+        "password": "scrypt:32768:8:1$nlJYawHP6UNlZCCf$bc0c10178dae0a357658f3bbeb42cabc25b56fac70f51e7b4cde2ea3178d7ec8a8930aec3b30a3ae506d8dd5a349842bd9376a7c6b3a166f4238ec5395595261",
+        "online": false,
+        "role": "user",
+        "nama": "reni",
+        "foto": "reni_IMG-20221114-WA0002.jpg",
+        "dark_mode": true
+    }
+}
